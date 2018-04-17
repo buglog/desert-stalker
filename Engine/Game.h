@@ -24,9 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Frog.h"
-#include "Wall.h"
-#include "Spike.h"
-#include "Level0.h"
+#include "Levels.h"
 
 class Game
 {
@@ -50,7 +48,7 @@ private:
 	Frog frog;
 	int death = 0;
 	int pause = 25;
-	Level0 level0;
+	Levels::L0 level_0;
 	Color c;
 	/********************************/
 };

@@ -27,7 +27,7 @@ Game::Game(MainWindow& wnd)
 	gfx(wnd)
 	//starting with left side of frame, moving clockwise.
 {
-	level0.init(frog);
+	level_0.spawn(frog);
 }
 
 void Game::Go()
@@ -52,11 +52,11 @@ void Game::UpdateModel()
 	else if (death >= pause)
 	{
 		death = 0;
-		level0.init(frog);	
+		level_0.spawn(frog);	
 		frog.stabbed = false;
 	}
 	//level 0
-	level0.level(frog, gfx);
+	level_0.processLevel(frog, gfx);
 }
 
 void Game::ComposeFrame()
