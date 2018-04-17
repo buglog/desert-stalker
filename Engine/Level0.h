@@ -5,6 +5,9 @@
 #include "Frame.h"
 #include "Colors.h"
 
+// I must try to think of a better way to store my levels. I feel like either class inheritance
+// or file access must be the key to this. I hate the idea of having  files floating around wherever
+
 class Level0
 {
 public:

@@ -22,7 +22,6 @@ void Level0::level(Frog & frog, Graphics& gfx)
 	{
 		stage4(frog, gfx);
 	}
-	
 	//draw frame
 	c.SetR(255);
 	c.SetG(0);
