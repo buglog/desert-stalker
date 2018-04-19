@@ -30,7 +30,7 @@ void Frog::Init(int setx, int sety)
 	y = sety;
 }
 
-void Frog::Update(const Keyboard & kbd)
+void Frog::update(const Keyboard & kbd)
 {
 	//move faster in the air than on ground across x dimensions.
 	int i;
@@ -93,10 +93,7 @@ void Frog::Update(const Keyboard & kbd)
 	{
 		++vy;
 	}
-	// get stabbed
-
-	//ClampToScreen(); 
-	//impordant part
+	// impordant part
 	x += vx; 
 	y += vy;
 }

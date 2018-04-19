@@ -9,9 +9,6 @@ void Levels::L0::processLevel(Frog & frog, Graphics& gfx)
 	nextStage(frog);
 	testStage(frog, gfx);
 	//draw frame
-	c.SetR(255);
-	c.SetG(0);
-	c.SetB(0);
 	frame.init(200, 50, 750, 550);
 	frame.clamp(frog);
 }
@@ -40,9 +37,9 @@ void Levels::L0::testStage(Frog& frog, Graphics& gfx)
 void Levels::L0::nextStage(Frog & frog)
 {
 	//right
-	if (frog.x + frog.width >= frame.x1 + 3 && stage < maxStages)
+	if (frog.x + frog.width >= frame.width + frog.width && stage < maxStages)
 	{
-		frog.x = frame.x0 + 2;
+		frog.x = frame.x;
 		++stage;
 	}
 	else if (stage > maxStages)
@@ -50,9 +47,9 @@ void Levels::L0::nextStage(Frog & frog)
 		stage = maxStages;
 	}
 	//left
-	if (frog.x <= frame.x0 - 3 && stage > 0)
+	if (frog.x <= frame.x - frog.width && stage > 0)
 	{
-		frog.x = frame.x1 - frog.width - 2;
+		frog.x = frame.width - frog.width - 1;
 		--stage;
 	}
 	else if (stage < 0)
@@ -66,6 +63,19 @@ void Levels::L0::spawn(Frog & frog)
 	stage = 0;
 	frog.x = 30;
 	frog.y = 505;
+}
+
+void Levels::L0::drawStages(Graphics & gfx)
+{	  
+	// eventually, you should have a
+	// drawStage0, drawStage1, drawStage2, etc
+	// these will all go here with a switch / case operator
+	// to check for the different values of 'stage'
+	// and draw the frame accordingly
+	c.SetR(255);
+	c.SetG(0);
+	c.SetB(0);
+	frame.draw(1, Colors::Yellow, gfx);
 }
 
 int Levels::L0::getStage()

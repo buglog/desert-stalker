@@ -8,7 +8,7 @@ class Frog
 public:
 	void ClampToScreen();
 	void Init(int setx, int sety);
-	void Update(const Keyboard& kbd);
+	void update(const Keyboard& kbd);
 	void Walk(Graphics& gfx);
 	void skull(Graphics& gfx);
 	bool jump = false;

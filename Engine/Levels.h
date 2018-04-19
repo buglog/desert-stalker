@@ -13,6 +13,7 @@ public:
 	public:
 		void processLevel(Frog& frog, Graphics& gfx);
 		void spawn(Frog& frog);
+		void drawStages(Graphics& gfx);
 		int getStage();
 	private:
 		void nextStage(Frog& frog);
@@ -27,4 +28,6 @@ public:
 		int maxStages = 1;
 		Frame frame;
 	};
+	//class L1
+	//{};
 };

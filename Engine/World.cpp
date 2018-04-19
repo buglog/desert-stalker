@@ -55,7 +55,6 @@ void World::Wall::draw(Graphics & gfx)
 	gfx.Rectangle(x0, y0, x1, y1, spacing, c);
 }
 
-
 void World::Spike::init(int setx, int sety, int setlength)
 {
 	x = setx;
@@ -134,4 +133,3 @@ void World::Spike::right(Frog& frog, Graphics& gfx)
 		frog.stabbed = true;
 	}
 }
-

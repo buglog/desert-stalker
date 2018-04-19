@@ -46,8 +46,8 @@ private:
 	/*  User Variables              */
 	Frame frame;
 	Frog frog;
-	int death = 0;
-	int pause = 25;
+	int deathCounter = 0;
+	int deathPauseLength = 25;
 	Levels::L0 level_0;
 	Color c;
 	/********************************/

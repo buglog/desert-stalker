@@ -9,6 +9,7 @@ public:
 		//pass frog by ref: wall0.block(frog);
 		//and then draw over top. wall.draw(gfx);
 		//easy right?
+		//also, if drawing onto a frame, pass wall through frame.offset(wall);
 	public:
 		void init(int setx0, int sety0, int setx1, int sety1, Color& setc, int setSpacing);
 		void block(Frog& frog);
