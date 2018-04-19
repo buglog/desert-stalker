@@ -27,8 +27,8 @@ private:
 	bool faceLeft = false;
 	Sprite sprites;
 public:
-	int x = 250;
-	int y = 500;
+	int x = 101;
+	int y = 450;
 	int vx = 0;
 	int vy = 0;
 	static constexpr int width  = 20;

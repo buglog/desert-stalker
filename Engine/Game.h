@@ -44,7 +44,6 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	Frame frame;
 	Frog frog;
 	int deathCounter = 0;
 	int deathPauseLength = 25;

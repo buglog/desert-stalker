@@ -18,15 +18,18 @@ public:
 		void nextStage(Frog& frog);
 		void testStage(Frog& frog, Graphics& gfx);
 		void stage0(Frog& frog, Graphics& gfx);
+		void stage1(Frog& frog, Graphics& gfx);
 	private:
-		static constexpr int testWallsN = 4;
-		World::Wall testWall[testWallsN];
+		World::Wall testWall[4];
 		World::Spike spike0;
 		World::Spike spike1;
 		Color c;
 		int stage = 0;
 		int maxStages = 1;
 		Frame frame;
+	private:
+		World::Wall stage0Walls[3];
+		World::Wall stage1Walls[2];
 	};
 	//class L1
 	//{};

@@ -27,7 +27,6 @@ Game::Game(MainWindow& wnd)
 	gfx(wnd)
 	//starting with left side of frame, moving clockwise.
 {
-	level_0.spawn(frog);
 }
 
 void Game::Go()
@@ -70,9 +69,4 @@ void Game::ComposeFrame()
 	{
 		frog.skull(gfx);
 	}
-	frame.init(200, 50, 750, 550);
-	c.SetR(255);
-	c.SetG(0);
-	c.SetB(0);
-	frame.draw(2,c,gfx);
 }
