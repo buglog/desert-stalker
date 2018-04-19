@@ -70,10 +70,6 @@ void Game::ComposeFrame()
 	{
 		frog.skull(gfx);
 	}
-	// this is new. all drawStage functions will be organized here so that
-	// the stage changes depending on the stage var.
-	level_0.drawStages(gfx);
-	// this should probably also go into drawStages.
 	frame.init(200, 50, 750, 550);
 	c.SetR(255);
 	c.SetG(0);

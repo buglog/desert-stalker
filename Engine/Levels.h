@@ -2,7 +2,7 @@
 #include "Frog.h"
 #include "Frame.h"
 #include "Colors.h"
-#include "World.h"
+#include "WorldObj.h"
 
 class Levels
 {
@@ -13,11 +13,11 @@ public:
 	public:
 		void processLevel(Frog& frog, Graphics& gfx);
 		void spawn(Frog& frog);
-		void drawStages(Graphics& gfx);
 		int getStage();
 	private:
 		void nextStage(Frog& frog);
 		void testStage(Frog& frog, Graphics& gfx);
+		void stage0(Frog& frog, Graphics& gfx);
 	private:
 		static constexpr int testWallsN = 4;
 		World::Wall testWall[testWallsN];

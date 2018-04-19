@@ -1,4 +1,4 @@
-#include "World.h"
+#include "WorldObj.h"
 
 void World::Wall::init(int setx0, int sety0, int setx1, int sety1, Color& setc, int setSpacing)
 {

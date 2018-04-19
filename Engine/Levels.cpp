@@ -9,7 +9,8 @@ void Levels::L0::processLevel(Frog & frog, Graphics& gfx)
 	nextStage(frog);
 	testStage(frog, gfx);
 	//draw frame
-	frame.init(200, 50, 750, 550);
+	frame.init(150, 50, 600, 500);
+	frame.offset(frog);
 	frame.clamp(frog);
 }
 
@@ -32,6 +33,10 @@ void Levels::L0::testStage(Frog& frog, Graphics& gfx)
 	spike1.init(640, 530, 30 );
 	spike0.floor(frog, gfx);
 	spike1.floor(frog, gfx);
+}
+
+void Levels::L0::stage0(Frog & frog, Graphics& gfx)
+{
 }
 
 void Levels::L0::nextStage(Frog & frog)
@@ -63,19 +68,6 @@ void Levels::L0::spawn(Frog & frog)
 	stage = 0;
 	frog.x = 30;
 	frog.y = 505;
-}
-
-void Levels::L0::drawStages(Graphics & gfx)
-{	  
-	// eventually, you should have a
-	// drawStage0, drawStage1, drawStage2, etc
-	// these will all go here with a switch / case operator
-	// to check for the different values of 'stage'
-	// and draw the frame accordingly
-	c.SetR(255);
-	c.SetG(0);
-	c.SetB(0);
-	frame.draw(1, Colors::Yellow, gfx);
 }
 
 int Levels::L0::getStage()

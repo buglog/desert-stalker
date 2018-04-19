@@ -150,7 +150,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="WorldObj.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp" />
@@ -164,7 +164,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="WorldObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
