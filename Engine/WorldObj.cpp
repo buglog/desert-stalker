@@ -76,7 +76,7 @@ void World::Spike::floor(Frog& frog, Graphics& gfx)
 		frog.y + frog.height > y - height &&
 		frog.y < y)
 	{
-		frog.stabbed = true;
+		frog.isStabbed = true;
 	}
 }
 
@@ -94,7 +94,7 @@ void World::Spike::top(Frog& frog, Graphics& gfx)
 		frog.y + frog.height > y - width &&
 		frog.y < y)
 	{
-		frog.stabbed = true;
+		frog.isStabbed = true;
 	}
 }
 
@@ -112,7 +112,7 @@ void World::Spike::left(Frog& frog, Graphics& gfx)
 		frog.y + frog.height > y - width &&
 		frog.y < y)
 	{
-		frog.stabbed = true;
+		frog.isStabbed = true;
 	}
 }
 
@@ -130,6 +130,6 @@ void World::Spike::right(Frog& frog, Graphics& gfx)
 		frog.y + frog.height > y - width &&
 		frog.y < y)
 	{
-		frog.stabbed = true;
+		frog.isStabbed = true;
 	}
 }

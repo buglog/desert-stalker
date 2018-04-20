@@ -27,7 +27,6 @@ Game::Game(MainWindow& wnd)
 	gfx(wnd)
 	//starting with left side of frame, moving clockwise.
 {
-	level_0.spawn(frog);
 }
 
 void Game::Go()
@@ -41,7 +40,7 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	//check if frog got stabbed by spikes
-	if (!frog.stabbed)
+	if (!frog.isStabbed)
 	{
 		frog.update(wnd.kbd);
 	}
@@ -53,8 +52,8 @@ void Game::UpdateModel()
 	else if (deathCounter >= deathPauseLength)
 	{
 		deathCounter = 0;
-		level_0.spawn(frog);	
-		frog.stabbed = false;
+		level_0.spawn(frog);
+		frog.isStabbed = false;
 	}
 	//level 0
 	level_0.processLevel(frog, gfx);
@@ -62,7 +61,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	if (!frog.stabbed)
+	if (!frog.isStabbed)
 	{
 		frog.Walk(gfx);
 	}

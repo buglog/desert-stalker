@@ -28,11 +28,11 @@ private:
 	Sprite sprites;
 public:
 	int x = 101;
-	int y = 450;
+	int y = 420;
 	int vx = 0;
 	int vy = 0;
 	static constexpr int width  = 20;
 	static constexpr int height = 24;
 	bool onGround = false;
-	bool stabbed = false;
+	bool isStabbed = false;
 };
