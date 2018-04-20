@@ -56,6 +56,7 @@ void Game::UpdateModel()
 		frog.isStabbed = false;
 	}
 	//level 0
+	//once i know how to load sprites, the levels will be drawn out and put in ComposeFrame for posterity.
 	level_0.processLevel(frog, gfx);
 }
 

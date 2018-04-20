@@ -4,6 +4,11 @@ Levels::Levels()
 {
 }
 
+Levels::L0::L0()
+{
+	frame.init(0, 0, 600, 500);
+}
+
 void Levels::L0::processLevel(Frog & frog, Graphics& gfx)
 {
 	if (!frog.isSpawned)
@@ -14,8 +19,6 @@ void Levels::L0::processLevel(Frog & frog, Graphics& gfx)
 	nextStage(frog);
 	//testStage(frog, gfx);
 	stage0(frog, gfx);
-	//draw frame
-	frame.init(0, 0, 600, 500);
 	//frame.offset(frog);
 	frame.clamp(frog);
 	c.SetR(255);
@@ -63,9 +66,9 @@ void Levels::L0::stage1(Frog & frog, Graphics & gfx)
 void Levels::L0::nextStage(Frog & frog)
 {
 	//right
-	if (frog.x + frog.width >= frame.width + frog.width && stage < maxStages)
+	if (frog.x + frog.width >= frame.width - 1 && stage < maxStages)
 	{
-		frog.x = frame.x;
+		frog.x = frame.x + frog.width;
 		++stage;
 	}
 	else if (stage > maxStages)
@@ -73,9 +76,9 @@ void Levels::L0::nextStage(Frog & frog)
 		stage = maxStages;
 	}
 	//left
-	if (frog.x <= frame.x - frog.width && stage > 0)
+	if (frog.x <= frame.x + 1 && stage > 0)
 	{
-		frog.x = frame.width - frog.width - 1;
+		frog.x = frame.width - frog.width * 2;
 		--stage;
 	}
 	else if (stage < 0)

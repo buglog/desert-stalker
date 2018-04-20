@@ -11,6 +11,7 @@ public:
 	class L0 
 	{
 	public:
+		L0();
 		void processLevel(Frog& frog, Graphics& gfx);
 		void spawn(Frog& frog);
 		int getStage();
