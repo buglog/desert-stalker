@@ -27,7 +27,6 @@ Game::Game(MainWindow& wnd)
 	gfx(wnd)
 	//starting with left side of frame, moving clockwise.
 {
-	level_0.spawn(frog);
 }
 
 void Game::Go()

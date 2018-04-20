@@ -50,6 +50,59 @@ void World::Wall::block(Frog & frog)
 	}
 }
 
+void World::Wall::block2(Frog & frog)
+{
+	//set the block axis.
+	if (frog.x + frog.width >= x0 && frog.x <= x1 && 
+		//make sure it only tests if frog is already outside of the box.
+		(frog.y + frog.height <= y0 || frog.y >= y1))
+	{
+		rangeY = true;
+	}
+	if (frog.y + frog.height >= y0 && frog.y <= y1 &&
+		(frog.x + frog.width <= x0 || frog.x >= x1))
+	{
+		rangeY = false;
+	}
+
+	const int wallHeight = y1 - y0;
+	const int wallWidth = x1 - x0;
+
+	if (rangeY)
+	{
+		//if frog is in top half of box, push to top.
+		//if frog is in bottom half of box, push down.
+		if (frog.y + frog.height >= y0 &&
+			//this one has >=, but the other one doesn't. NO OVERLAP! even by one pixel. this is important in case you want to make thin walls for some reason.
+			frog.y + (frog.height/2) <= y0 + (wallHeight/2))
+		{
+			frog.y = y0 - frog.height;
+			frog.onGround = true;
+		}
+		else if (frog.y <= y1 &&
+			frog.y + (frog.height / 2) > y0 + (wallHeight / 2))
+		{
+			frog.y = y1;
+			frog.vy = 0;
+		}
+	}
+	else //test horizontal range
+	{
+		if (frog.x + frog.width >= x0 &&
+			frog.x + (frog.width / 2) <= x0 + (wallWidth / 2))
+		{
+			frog.x = x0 - frog.width - 1;
+			frog.vx = 0;
+		}
+		else if (frog.x <= x1 &&
+			frog.x + (frog.width / 2) > x0 + (wallWidth / 2))
+		{
+			frog.x = x1 + 1;
+			frog.vx = 0;
+		}
+	}
+}
+
 void World::Wall::draw(Graphics & gfx)
 {
 	gfx.Rectangle(x0, y0, x1, y1, spacing, c);

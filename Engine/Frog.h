@@ -35,4 +35,5 @@ public:
 	static constexpr int height = 24;
 	bool onGround = false;
 	bool isStabbed = false;
+	bool isSpawned = false;
 };

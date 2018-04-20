@@ -6,6 +6,11 @@ Levels::Levels()
 
 void Levels::L0::processLevel(Frog & frog, Graphics& gfx)
 {
+	if (!frog.isSpawned)
+	{
+		spawn(frog);
+		frog.isSpawned = true;
+	}
 	nextStage(frog);
 	//testStage(frog, gfx);
 	stage0(frog, gfx);
@@ -46,17 +51,9 @@ void Levels::L0::stage0(Frog & frog, Graphics& gfx)
 	c.SetG(239);
 	c.SetB(034);
 	//floor
-	stage0Walls[0].init(0, 450, frame.width, frame.height, c, 2);
-	//side wall
-	stage0Walls[1].init(0, 0, 100, 450, c, 2);
-	//ceiling
-	stage0Walls[2].init(100, 0, frame.width, 420, c, 2);
-	for (int i = 0; i < 3; ++i)
-	{
-		//frame.offset(stage0Walls[i]);
-		stage0Walls[i].block(frog);
-		stage0Walls[i].draw(gfx);
-	}
+	stage0Walls[0].init(200,200,300,300,c,2);
+	stage0Walls[0].block2(frog);
+	stage0Walls[0].draw(gfx);
 }
 
 void Levels::L0::stage1(Frog & frog, Graphics & gfx)
@@ -89,11 +86,8 @@ void Levels::L0::nextStage(Frog & frog)
 
 void Levels::L0::spawn(Frog & frog)
 {
-	if (stage == 0)
-	{
-		frog.x = 110;
-		frog.y = 450 - frog.height;
-	}
+	frog.x = 200;
+	frog.y = 450 - frog.height;
 }
 
 int Levels::L0::getStage()

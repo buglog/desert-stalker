@@ -38,15 +38,15 @@ void Frame::clamp(Frog & frog)
 		frog.onGround = true;
 	}
 	//left
-	if (frog.x <= x - 5)
+	if (frog.x <= x)
 	{
-		frog.x = x - 5;
+		frog.x = x;
 		frog.vx = 0;
 	}
 	//right
-	if (frog.x + frog.width >= width + 5)
+	if (frog.x + frog.width >= width)
 	{
-		frog.x = width + 5 - frog.width;
+		frog.x = width - frog.width;
 		frog.vx = 0;
 	}
 	//top

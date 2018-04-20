@@ -13,12 +13,16 @@ public:
 	public:
 		void init(int setx0, int sety0, int setx1, int sety1, Color& setc, int setSpacing);
 		void block(Frog& frog);
+		void block2(Frog& frog);
 		void draw(Graphics& gfx);
 	public:
 		int x0 = 0;
 		int y0 = 0;
 		int x1 = 0;
 		int y1 = 0;
+		//rangeY checks if the frog is over or under the box.
+		//the box can only block the frog on one axis at a time to avoid corner issues and the frog entering the box.
+		bool rangeY = true;
 		int spacing = 0;
 		Color c;
 	};
