@@ -54,9 +54,11 @@ void Levels::L0::stage0(Frog & frog, Graphics& gfx)
 	c.SetG(239);
 	c.SetB(034);
 	//floor
-	stage0Walls[0].init(200,200,300,300,c,2);
+	stage0Walls[0].init(frame.x,460,frame.width,frame.height,c,2);
 	//left side
-	stage0Walls[1].init(frame.x, frame.y, 70, 470, c, 2);
+	stage0Walls[1].init(frame.x, 430, 70, 460, c, 2);
+	//ceiling
+	stage0Walls[2].init(frame.x, frame.y, frame.width, 430, c, 2);
 	for (int i = 0; i < 3; ++i)
 	{
 		stage0Walls[i].block2(frog);
@@ -94,8 +96,8 @@ void Levels::L0::nextStage(Frog & frog)
 
 void Levels::L0::spawn(Frog & frog)
 {
-	frog.x = 200;
-	frog.y = 450 - frog.height;
+	frog.x = 80;
+	frog.y = 460 - frog.height;
 }
 
 int Levels::L0::getStage()
