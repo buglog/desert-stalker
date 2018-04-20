@@ -55,8 +55,13 @@ void Levels::L0::stage0(Frog & frog, Graphics& gfx)
 	c.SetB(034);
 	//floor
 	stage0Walls[0].init(200,200,300,300,c,2);
-	stage0Walls[0].block2(frog);
-	stage0Walls[0].draw(gfx);
+	//left side
+	stage0Walls[1].init(frame.x, frame.y, 70, 470, c, 2);
+	for (int i = 0; i < 3; ++i)
+	{
+		stage0Walls[i].block2(frog);
+		stage0Walls[i].draw(gfx);
+	}
 }
 
 void Levels::L0::stage1(Frog & frog, Graphics & gfx)

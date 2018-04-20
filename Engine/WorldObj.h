@@ -1,6 +1,11 @@
 #pragma once
 #include "Frog.h"
 
+// IMPORTANT NOTE:
+// i decided having all the world objects in the same file is actually a dumb idea. When i have free time i am going to remake Wall.h and Spike.h.
+// What i forgot was that i can put files into folders if I want to. If the world objects get to be too many, just stick em in a folder.
+// it way easier than scrolling down an endless list of subclasses.
+
 class World
 {
 public:
