@@ -31,11 +31,10 @@ void Frame::offset(Spike & spike)
 void Frame::clamp(Vampire& vamp)
 {	
 	//bottom
-	if (vamp.y + vamp.height >= height)
+	if (vamp.y + vamp.height >= float(height))
 	{
-		vamp.y = height - vamp.height;
-		vamp.vy = 0;
-		vamp.onGround = true;
+		vamp.y = float(height) - vamp.height;
+		vamp.vy = 0.0f;
 	}
 	//left
 	if (vamp.x <= x)
@@ -44,13 +43,13 @@ void Frame::clamp(Vampire& vamp)
 		vamp.vx = 0.0f;
 	}
 	//right
-	if (vamp.x + vamp.width >= width)
+	if (vamp.x + vamp.width >= float(width))
 	{
-		vamp.x = width - vamp.width;
-		vamp.vx = 0;
+		vamp.x = float(width) - vamp.width;
+		vamp.vx = 0.0f;
 	}
 	//top
-	if (vamp.y <= y)
+	if (vamp.y <= float(y))
 	{
 		vamp.y  = float(y);
 		vamp.vy = 0.0f;

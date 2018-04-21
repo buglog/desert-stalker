@@ -14,9 +14,8 @@
 		//easy right?
 		//also, if drawing onto a frame, pass wall through frame.offset(wall);
 	public:
-		void init(int setx0, int sety0, int setx1, int sety1, Color& setc, int setSpacing);
-		void block (Vampire& vamp);
-		void block2(Vampire& vamp);
+		void init(int setx0, int sety0, int setx1, int sety1, Color setc, int setSpacing);
+		void block(Vampire& vamp);
 		void draw(Graphics& gfx);
 	public:
 		int x0 = 0;

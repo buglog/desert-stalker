@@ -1,6 +1,6 @@
 #include "Wall.h"
 
-void Wall::init(int setx0, int sety0, int setx1, int sety1, Color& setc, int setSpacing)
+void Wall::init(int setx0, int sety0, int setx1, int sety1, Color setc, int setSpacing)
 {
 	x0 = setx0;
 	y0 = sety0;
@@ -11,46 +11,6 @@ void Wall::init(int setx0, int sety0, int setx1, int sety1, Color& setc, int set
 }
 
 void Wall::block(Vampire& vamp)
-{
-	//top (floor)
-	if (vamp.x + vamp.width > x0 + 1 &&
-		vamp.x < x1 - 1 &&
-		vamp.y + vamp.height > y0    &&
-		vamp.y < y0 + 5)
-	{
-		vamp.y = y0 - vamp.height;
-		vamp.onGround = true;
-	}
-	//bottom
-	else if (vamp.x + vamp.width > x0 + 1 &&
-		vamp.x < x1 - 1 &&
-		vamp.y + vamp.height > y1 - 1 &&
-		vamp.y < y1)
-	{
-		vamp.y = y1 + 1;
-		vamp.vy = 0;
-	}
-	//left side
-	else if (vamp.y + vamp.height >= y0 &&
-		vamp.y <= y1				    &&
-		vamp.x + vamp.width >= x0		&&
-		vamp.x < x0 + 5)
-	{
-		vamp.x = x0 - vamp.width;
-		vamp.vx = 0;
-	}
-	//right side
-	else if (vamp.y + vamp.height >= y0  &&
-		vamp.y <= y1 				 &&
-		vamp.x <= x1				 &&
-		vamp.x + vamp.width > x1 - 5)
-	{
-		vamp.x = x1;
-		vamp.vx = 0;
-	}
-}
-
-void Wall::block2(Vampire& vamp)
 {
 	//set the block axis.
 	if (vamp.x + vamp.width >= x0 && vamp.x <= x1 && 
@@ -72,33 +32,33 @@ void Wall::block2(Vampire& vamp)
 	{
 		//if vamp is in top half of box, push to top.
 		//if vamp is in bottom half of box, push down.
-		if (vamp.y + vamp.height >= y0 &&
+		if (vamp.y + vamp.height >= float(y0) &&
 			//this one has >=, but the other one doesn't. NO OVERLAP! even by one pixel. this is important in case you want to make thin walls for some reason.
-			vamp.y + (vamp.height/2) <= y0 + (wallHeight/2))
+			vamp.y + (vamp.height/2) <= float (y0 + (wallHeight/2)))
 		{
-			vamp.y = y0 - vamp.height;
-			vamp.onGround = true;
+			vamp.y = float(y0) - vamp.height;
+			vamp.vy = 0.0f;
 		}
 		else if (vamp.y <= y1 &&
-			vamp.y + (vamp.height / 2) > y0 + (wallHeight / 2))
+			vamp.y + (vamp.height / 2.0f) > float(y0 + (wallHeight / 2)))
 		{
-			vamp.y = y1;
-			vamp.vy = 0;
+			vamp.y = float(y1);
+			vamp.vy = 0.0f;
 		}
 	}
 	else //test horizontal range
 	{
 		if (vamp.x + vamp.width >= x0 &&
-			vamp.x + (vamp.width / 2) <= x0 + (wallWidth / 2))
+			vamp.x + (vamp.width / 2) <= float(x0 + (wallWidth / 2)))
 		{
-			vamp.x = x0 - vamp.width - 1;
-			vamp.vx = 0;
+			vamp.x = float(x0) - vamp.width - 1.0f;
+			vamp.vx = 0.0f;
 		}
 		else if (vamp.x <= x1 &&
-			vamp.x + (vamp.width / 2) > x0 + (wallWidth / 2))
+			vamp.x + (vamp.width / 2) > float(x0 + (wallWidth / 2)))
 		{
-			vamp.x = x1 + 1;
-			vamp.vx = 0;
+			vamp.x = float(x1 + 1);
+			vamp.vx = 0.0f;
 		}
 	}
 }

@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "Frame.h"
 #include "Vampire.h"
+#include "Cactus.h"
 
 class Desert
 {
@@ -11,6 +12,7 @@ public:
 private:
 	//drawing functions:
 	void drawSand(Graphics& gfx);
+	void placeCactuses(Vampire& vamp);
 private:
 	Frame frame;
 	Color csand;

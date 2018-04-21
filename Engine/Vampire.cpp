@@ -20,11 +20,10 @@ void Vampire::ClampToScreen()
 	if (y + height >= Graphics::ScreenHeight)
 	{
 		y = Graphics::ScreenHeight - height;
-		onGround = true;
 	}
 }
 
-void Vampire::Init(int setx, int sety)
+void Vampire::init(int setx, int sety)
 {
 	x = float(setx);
 	y = float(sety);

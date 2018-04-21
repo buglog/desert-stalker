@@ -38,3 +38,7 @@ void Desert::drawSand(Graphics & gfx)
 	//csand.SetB(255);
 	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
+
+void Desert::placeCactuses(Vampire & vamp)
+{
+}
