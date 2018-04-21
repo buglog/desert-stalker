@@ -3,6 +3,7 @@
 #include "Frame.h"
 #include "Colors.h"
 #include "Wall.h"
+#include "Spike.h"
 
 class Levels
 {

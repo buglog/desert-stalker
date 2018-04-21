@@ -1,6 +1,7 @@
 #pragma once
 #include "Vampire.h"
 #include "Wall.h"
+#include "Spike.h"
 
 class Frame 
 {
