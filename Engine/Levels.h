@@ -1,8 +1,8 @@
 #pragma once
-#include "Frog.h"
+#include "Vampire.h"
 #include "Frame.h"
 #include "Colors.h"
-#include "WorldObj.h"
+#include "Wall.h"
 
 class Levels
 {
@@ -12,25 +12,24 @@ public:
 	{
 	public:
 		L0();
-		void processLevel(Frog& frog, Graphics& gfx);
-		void spawn(Frog& frog);
+		void processLevel(Vampire& vamp, Graphics& gfx);
+		void spawn(Vampire& vamp);
 		int getStage();
 	private:
-		void nextStage(Frog& frog);
-		void testStage(Frog& frog, Graphics& gfx);
-		void stage0(Frog& frog, Graphics& gfx);
-		void stage1(Frog& frog, Graphics& gfx);
+		void nextStage(Vampire& vamp);
+		void openDesert(Vampire& vamp, Graphics& gfx);
+		void stage1(Vampire& vamp, Graphics& gfx);
 	private:
-		World::Wall testWall[4];
-		World::Spike spike0;
-		World::Spike spike1;
+		Wall testWall[4];
+		Spike spike0;
+		Spike spike1;
 		Color c;
 		int stage = 0;
 		int maxStages = 1;
 		Frame frame;
 	private:
-		World::Wall stage0Walls[3];
-		World::Wall stage1Walls[2];
+		Wall stage0Walls[3];
+		Wall stage1Walls[2];
 	};
 	//class L1
 	//{};

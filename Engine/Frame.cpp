@@ -8,13 +8,13 @@ void Frame::init(int setx, int sety, int setWidth, int setHeight)
 	height = setHeight;
 }
 
-void Frame::offset(Frog & frog)
+void Frame::offset(Vampire& vamp)
 {
-	frog.x = frog.x + x;
-	frog.y = frog.y + y;
+	vamp.x = vamp.x + x;
+	vamp.y = vamp.y + y;
 }
 
-void Frame::offset(World::Wall & wall)
+void Frame::offset(Wall & wall)
 {
 	wall.x0 = wall.x0 + x;
 	wall.x1 = wall.x1 + x;
@@ -22,38 +22,38 @@ void Frame::offset(World::Wall & wall)
 	wall.y1 = wall.y1 + y;
 }
 
-void Frame::offset(World::Spike & spike)
+void Frame::offset(Spike & spike)
 {
 	spike.x += x;
 	spike.y += y;
 }
 
-void Frame::clamp(Frog & frog)
+void Frame::clamp(Vampire& vamp)
 {	
 	//bottom
-	if (frog.y + frog.height >= height)
+	if (vamp.y + vamp.height >= height)
 	{
-		frog.y = height - frog.height;
-		frog.vy = 0;
-		frog.onGround = true;
+		vamp.y = height - vamp.height;
+		vamp.vy = 0;
+		vamp.onGround = true;
 	}
 	//left
-	if (frog.x <= x)
+	if (vamp.x <= x)
 	{
-		frog.x = x;
-		frog.vx = 0;
+		vamp.x = x;
+		vamp.vx = 0;
 	}
 	//right
-	if (frog.x + frog.width >= width)
+	if (vamp.x + vamp.width >= width)
 	{
-		frog.x = width - frog.width;
-		frog.vx = 0;
+		vamp.x = width - vamp.width;
+		vamp.vx = 0;
 	}
 	//top
-	if (frog.y <= y)
+	if (vamp.y <= y)
 	{
-		frog.y = y;
-		frog.vy = 0;
+		vamp.y = y;
+		vamp.vy = 0;
 	}
 }
 

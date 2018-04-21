@@ -1,16 +1,16 @@
 #pragma once
-#include "Frog.h"
-#include "WorldObj.h"
+#include "Vampire.h"
+#include "Wall.h"
 
 class Frame 
 {
 public:
 	void init(int x0, int y0, int x1, int y1);
-	void offset(Frog& frog);
-	void offset(World::Wall& wall);
+	void offset(Vampire& vamp);
+	void offset(Wall& wall);
 	//call offset functions before clamp func.
-	void offset(World::Spike& spike);
-	void clamp(Frog& frog);
+	void offset(Spike& spike);
+	void clamp(Vampire& vamp);
 	void draw(int spacing, Color c, Graphics& gfx);
 public:
 	int x = 0;

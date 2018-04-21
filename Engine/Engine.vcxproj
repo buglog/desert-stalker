@@ -139,9 +139,10 @@
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
     <ClInclude Include="Colors.h" />
+    <ClInclude Include="Desert.h" />
     <ClInclude Include="DXErr.h" />
     <ClInclude Include="Frame.h" />
-    <ClInclude Include="Frog.h" />
+    <ClInclude Include="Vampire.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Keyboard.h" />
@@ -150,12 +151,13 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="WorldObj.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Desert.cpp" />
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="Frame.cpp" />
-    <ClCompile Include="Frog.cpp" />
+    <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Keyboard.cpp" />
@@ -164,7 +166,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="WorldObj.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">

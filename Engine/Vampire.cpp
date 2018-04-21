@@ -1,6 +1,6 @@
-#include "Frog.h"
+#include "Vampire.h"
 
-void Frog::ClampToScreen()
+void Vampire::ClampToScreen()
 {
 	if (x <= 0)
 	{
@@ -24,149 +24,52 @@ void Frog::ClampToScreen()
 	}
 }
 
-void Frog::Init(int setx, int sety)
+void Vampire::Init(int setx, int sety)
 {
 	x = setx;
 	y = sety;
 }
 
-void Frog::update(const Keyboard & kbd)
+void Vampire::update(const Keyboard & kbd)
 {
-	//move faster in the air than on ground across x dimensions.
-	int i;
-	if (!onGround)
+	if (kbd.KeyIsPressed(VK_UP) || kbd.KeyIsPressed('W'))
 	{
-		i = speed + yaw;
+		vy = -speed;
+	}
+	else if (kbd.KeyIsPressed(VK_DOWN) || kbd.KeyIsPressed('S'))
+	{
+		vy = speed;
 	}
 	else
 	{
-		i = speed;
+		vy = 0;
 	}
-	//move
-	if (kbd.KeyIsPressed(VK_RIGHT) && vx < i)
+	if (kbd.KeyIsPressed(VK_LEFT) || kbd.KeyIsPressed('A'))
 	{
-		++vx;
+		vx = -speed;
+	}
+	else if (kbd.KeyIsPressed(VK_RIGHT) || kbd.KeyIsPressed('D'))
+	{
+		vx = speed;
 	}
 	else
 	{
-		if (vx > 0)
-		{
-			--vx;
-		}
+		vx = 0;
 	}
-	if (kbd.KeyIsPressed(VK_LEFT) && vx > -i)
-	{
-		--vx;
-	}
-	else
-	{
-		if (vx < 0)
-		{
-			++vx;
-		}
-	}
-	//jump
-	if (kbd.KeyIsPressed(VK_UP) && onGround)
-	{
-		jump = true;
-	}
-	if (jump == true)
-	{
-		if (jumpCount < jumpHeight)
-		{
-			vy = -jumpSpeed;
-			onGround = false;
-			++jumpCount;
-		}
-	}
-	if (jumpCount >= jumpHeight)
-	{
-		jumpCount = 0;
-		jump = false;
-	}
-	//fall
-	if (vy > 1)
-	{
-		onGround = false;
-	}
-	if (vy < fallSpeed)
-	{
-		++vy;
-	}
-	// impordant part
-	x += vx; 
+	//update position.
+	x += vx;
 	y += vy;
 }
 
-void Frog::Walk(Graphics & gfx)
+void Vampire::draw(Graphics & gfx)
 {
-	++count;
-	if (count >= 6)
-	{
-		count = 0;
-	}
-	//this funct animates the frames of animation we have drawn.
-	if (onGround)
-	{
-		if (vx == 0 && faceRight)
-		{
-			sprites.Frog_R0(x, y, gfx);
-		}
-		if (vx == 0 && faceLeft)
-		{
-			sprites.Frog_L0(x, y, gfx);
-		}
-		if (vx > 0)
-		{
-			if (count >= 0 && count < 3)
-			{
-				sprites.Frog_R0(x, y, gfx);
-			}
-			else if (count >= 3 && count < 6)
-			{
-				sprites.Frog_R1(x, y, gfx);
-			}
-			faceRight = true;
-			faceLeft = false;
-		}
-		if (vx < 0)
-		{
-			if (count >= 0 && count < 3)
-			{
-				sprites.Frog_L0(x, y, gfx);
-			}
-			else if (count >= 3 && count < 6)
-			{
-				sprites.Frog_L1(x, y, gfx);
-			}
-			faceLeft = true;
-			faceRight = false;
-		}
-	}
-	else
-	{
-		if (vx > 0)
-		{
-			faceRight = true;
-			faceLeft = false;
-		}
-		if (vx < 0)
-		{
-			faceLeft = true;
-			faceRight = false;
-		}
-		if (faceRight)
-		{
-			sprites.Frog_R1(x, y, gfx);
-		}
-		if (faceLeft)
-		{
-			sprites.Frog_L1(x, y, gfx);
-		}
-	}
+	cvamp.SetR(255);
+	cvamp.SetG(255);
+	cvamp.SetB(255);
+	gfx.Rectangle(x, y, x + width, y + height, 2, cvamp);
 }
 
-void Frog::skull(Graphics & gfx)
+void Vampire::skull(Graphics & gfx)
 {
 	gfx.PutPixel(x + 0, y + 3, 0, 0, 0);
 	gfx.PutPixel(x + 0, y + 4, 0, 0, 0);

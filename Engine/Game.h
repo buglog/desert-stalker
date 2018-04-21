@@ -23,8 +23,8 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-#include "Frog.h"
-#include "Levels.h"
+#include "Vampire.h"
+#include "Desert.h"
 
 class Game
 {
@@ -44,10 +44,10 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	Frog frog;
+	Vampire vampire;
 	int deathCounter = 0;
 	int deathPauseLength = 25;
-	Levels::L0 level_0;
+	Desert desert;
 	Color c;
 	/********************************/
 };

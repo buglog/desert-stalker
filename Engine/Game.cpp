@@ -39,12 +39,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	//check if frog got stabbed by spikes
-	if (!frog.isStabbed)
+	//check if vamp got stabbed by spikes
+	if (!vampire.isStabbed)
 	{
-		frog.update(wnd.kbd);
+		vampire.update(wnd.kbd);
 	}
-	//if stabbed, respawn frog
+	//if stabbed, respawn vamp
 	else if (deathCounter < deathPauseLength)
 	{
 		++deathCounter;
@@ -52,22 +52,22 @@ void Game::UpdateModel()
 	else if (deathCounter >= deathPauseLength)
 	{
 		deathCounter = 0;
-		level_0.spawn(frog);
-		frog.isStabbed = false;
+		desert.spawn(400,300,vampire);
+		vampire.isStabbed = false;
 	}
 	//level 0
 	//once i know how to load sprites, the levels will be drawn out and put in ComposeFrame for posterity.
-	level_0.processLevel(frog, gfx);
+	desert.process(vampire, gfx);
 }
 
 void Game::ComposeFrame()
 {
-	if (!frog.isStabbed)
+	if (!vampire.isStabbed)
 	{
-		frog.Walk(gfx);
+		vampire.draw(gfx);
 	}
 	else
 	{
-		frog.skull(gfx);
+		vampire.skull(gfx);
 	}
 }
