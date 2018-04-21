@@ -1,5 +1,10 @@
 #include "Desert.h"
 
+Desert::Desert()
+{
+	c0.init(300, 250, 0);
+}
+
 void Desert::process(Vampire & vamp, Graphics& gfx)
 {
 	frame.init(100, 50, 700, 550);
@@ -42,8 +47,6 @@ void Desert::drawSand(Graphics & gfx)
 
 void Desert::placeCactuses(Vampire & vamp, Graphics& gfx)
 {
-	Cactus c0;
-	c0.init(300, 250, 0);
 	c0.place(gfx, vamp);
 }
 

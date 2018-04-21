@@ -7,6 +7,7 @@
 class Desert
 {
 public:
+	Desert();
 	void process(Vampire& vamp,Graphics& gfx);
 	void spawn(int x, int y, Vampire& vamp);
 private:
@@ -14,6 +15,7 @@ private:
 	void drawSand(Graphics& gfx);
 	void placeCactuses(Vampire& vamp, Graphics& gfx);
 private:
+	Cactus c0;
 	Frame frame;
 	Color csand;
 	//cactuses

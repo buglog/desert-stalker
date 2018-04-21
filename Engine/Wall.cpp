@@ -56,7 +56,7 @@ void Wall::block(Vampire& vamp)
 		else if (vamp.x <= x1 &&
 			vamp.x + (vamp.width / 2) > float(x0 + (wallWidth / 2)))
 		{
-			vamp.x = float(x1 + 1);
+			vamp.x = float(x1);
 			vamp.vx = 0.0f;
 		}
 	}

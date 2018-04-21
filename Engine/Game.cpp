@@ -24,7 +24,8 @@
 Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
-	gfx(wnd)
+	gfx(wnd),
+	desert()
 	//starting with left side of frame, moving clockwise.
 {
 }
