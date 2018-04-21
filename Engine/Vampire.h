@@ -12,13 +12,20 @@ public:
 	void draw(Graphics& gfx);
 	void skull(Graphics& gfx);
 private:
+	//small vamp (desert scene)
+	void sml_drawLeft(Graphics& gfx);
+	void sml_drawRight(Graphics& gfx);
+	void sml_drawUp(Graphics& gfx);
+	void sml_drawDown(Graphics& gfx);
+	//large vamp
+private:
 	int count = 0;
-	float speed = 3.0f;
+	float speed = 2.5f;
 	//controls horizontal speed while jumping
-	bool faceLeft = false;
-	bool faceRight = true;
-	bool faceUp = false;
-	bool faceDown = false;
+	bool facingLeft = false;
+	bool facingRight = true;
+	bool facingUp = false;
+	bool facingDown = false;
 	Sprite sprites;
 	Color cvamp;
 public:
@@ -29,8 +36,14 @@ public:
 	float accel = 0.5f;
 	// width and height are no longer static constexpr so you can change size of vamp between stages.
 	// also, make hitbox around feet for walls and spikes, but around entire vamp for frame.clamp(vamp).
-	float width  = 36.0f;
-	float height = 42.0f;
+	int hitOffset = -40;
+	float width  = 50.0f;
+	float height = 40.0f;
+	float trueWidth = 50.0f;
+	float trueHeight = 80.0f;
+	//make Frame take realHeight instead of height
+	//and make hitbox smaller.
+	float realHeight = 0.0f;
 	bool isStabbed = false;
 	bool isSpawned = false;
 };

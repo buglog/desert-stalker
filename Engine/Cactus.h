@@ -17,6 +17,6 @@ private:
 	int nVersions = 3;
 	int x = 0;
 	int y = 0;
-	int width  = 20;
-	int height = 32;
+	int width  = 28;
+	int height = 48;
 };

@@ -2,12 +2,12 @@
 
 Desert::Desert()
 {
+	frame.init(200, 50, 750, 550);
 	c0.init(300, 250, 0);
 }
 
 void Desert::process(Vampire & vamp, Graphics& gfx)
 {
-	frame.init(100, 50, 700, 550);
 	frame.clamp(vamp);
 	frame.draw(1, Colors::Red, gfx);
 	drawSand(gfx);
