@@ -11,11 +11,11 @@ private:
 	void drawVer0(Graphics& gfx);
 	void drawVer1(Graphics& gfx);
 	void drawVer2(Graphics& gfx);
-	Wall wallVer0;
 private:
+	Wall cWall;
 	int version = 0;
 	int x = 0;
 	int y = 0;
-	int width  = 24;
-	int height = 42;
+	int width  = 20;
+	int height = 32;
 };

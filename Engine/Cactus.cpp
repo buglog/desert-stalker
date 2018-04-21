@@ -13,8 +13,8 @@ void Cactus::place(Graphics& gfx, Vampire& vamp)
 	{
 		//set width and height
 		drawVer0(gfx);
-		wallVer0.init(x, y, x + width, y + height, Colors::Black, 1);
-		wallVer0.block(vamp);
+		cWall.init(x, y, x + width, y + height, Colors::Black, 1);
+		cWall.block(vamp);
 	}
 	else if (version == 1)
 	{
@@ -30,6 +30,7 @@ void Cactus::place(Graphics& gfx, Vampire& vamp)
 
 void Cactus::drawVer0(Graphics & gfx)
 {
+	gfx.Rectangle(x, y, x + width, y + height, 2, Colors::Green);
 }
 
 void Cactus::drawVer1(Graphics & gfx)

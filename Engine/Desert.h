@@ -12,8 +12,9 @@ public:
 private:
 	//drawing functions:
 	void drawSand(Graphics& gfx);
-	void placeCactuses(Vampire& vamp);
+	void placeCactuses(Vampire& vamp, Graphics& gfx);
 private:
 	Frame frame;
 	Color csand;
+	//cactuses
 };

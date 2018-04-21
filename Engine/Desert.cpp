@@ -6,6 +6,7 @@ void Desert::process(Vampire & vamp, Graphics& gfx)
 	frame.clamp(vamp);
 	frame.draw(1, Colors::Red, gfx);
 	drawSand(gfx);
+	placeCactuses(vamp, gfx);
 }
 
 void Desert::spawn(int x, int y, Vampire & vamp)
@@ -39,6 +40,10 @@ void Desert::drawSand(Graphics & gfx)
 	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
 
-void Desert::placeCactuses(Vampire & vamp)
+void Desert::placeCactuses(Vampire & vamp, Graphics& gfx)
 {
+	Cactus c0;
+	c0.init(300, 250, 0);
+	c0.place(gfx, vamp);
 }
+
