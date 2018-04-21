@@ -7,9 +7,9 @@ class Frame
 {
 public:
 	void init(int x0, int y0, int x1, int y1);
+	//call offset functions before clamp func.
 	void offset(Vampire& vamp);
 	void offset(Wall& wall);
-	//call offset functions before clamp func.
 	void offset(Spike& spike);
 	void clamp(Vampire& vamp);
 	void draw(int spacing, Color c, Graphics& gfx);

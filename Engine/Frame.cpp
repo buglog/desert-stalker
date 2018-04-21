@@ -10,8 +10,8 @@ void Frame::init(int setx, int sety, int setWidth, int setHeight)
 
 void Frame::offset(Vampire& vamp)
 {
-	vamp.x = vamp.x + x;
-	vamp.y = vamp.y + y;
+	vamp.x = vamp.x + float(x);
+	vamp.y = vamp.y + float(y);
 }
 
 void Frame::offset(Wall & wall)
@@ -40,8 +40,8 @@ void Frame::clamp(Vampire& vamp)
 	//left
 	if (vamp.x <= x)
 	{
-		vamp.x = x;
-		vamp.vx = 0;
+		vamp.x  = float(x);
+		vamp.vx = 0.0f;
 	}
 	//right
 	if (vamp.x + vamp.width >= width)
@@ -52,8 +52,8 @@ void Frame::clamp(Vampire& vamp)
 	//top
 	if (vamp.y <= y)
 	{
-		vamp.y = y;
-		vamp.vy = 0;
+		vamp.y  = float(y);
+		vamp.vy = 0.0f;
 	}
 }
 

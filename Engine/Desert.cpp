@@ -2,7 +2,7 @@
 
 void Desert::process(Vampire & vamp, Graphics& gfx)
 {
-	frame.init(200, 200, 600, 400);
+	frame.init(100, 50, 700, 550);
 	frame.clamp(vamp);
 	frame.draw(1, Colors::Red, gfx);
 	drawSand(gfx);
@@ -10,8 +10,8 @@ void Desert::process(Vampire & vamp, Graphics& gfx)
 
 void Desert::spawn(int x, int y, Vampire & vamp)
 {
-	vamp.x = x;
-	vamp.y = y;
+	vamp.x = float(x);
+	vamp.y = float(y);
 }
 
 void Desert::drawSand(Graphics & gfx)
@@ -32,4 +32,9 @@ void Desert::drawSand(Graphics & gfx)
 	csand.SetR(255);
 	csand.SetG(220);
 	gfx.Rectangle(frame.x, frame.y, frame.width, frame.height, 24, csand);
+	//draw vignette
+	//csand.SetR(0);
+	//csand.SetG(0);
+	//csand.SetB(255);
+	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
