@@ -43,6 +43,7 @@ void Game::UpdateModel()
 	if (!vampire.isStabbed)
 	{
 		vampire.update(wnd.kbd);
+		desert.process(vampire, gfx);
 	}
 	//if stabbed, respawn vamp
 	else if (deathCounter < deathPauseLength)
@@ -57,7 +58,6 @@ void Game::UpdateModel()
 	}
 	//level 0
 	//once i know how to load sprites, the levels will be drawn out and put in ComposeFrame for posterity.
-	desert.process(vampire, gfx);
 }
 
 void Game::ComposeFrame()
