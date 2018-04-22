@@ -58,10 +58,6 @@ void Frame::clamp(Vampire& vamp)
 
 void Frame::draw(int spacing, Color c, Graphics & gfx)
 {
-	gfx.Rectangle(0, 0, x, gfx.ScreenHeight - 1, 1, Colors::Black);
-	gfx.Rectangle(0, 0, gfx.ScreenWidth - 1, y, 1, Colors::Black);
-	gfx.Rectangle(width, 0, gfx.ScreenWidth - 1, gfx.ScreenHeight - 1, 1, Colors::Black);
-	gfx.Rectangle(0, height, gfx.ScreenWidth - 1, gfx.ScreenHeight - 1, 1, Colors::Black);
 	gfx.HorizontalLine(x, width, y, spacing, c);
 	gfx.HorizontalLine(x, width, height, spacing, c);
 	gfx.VerticalLine(y, height, x, spacing, c);

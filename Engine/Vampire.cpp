@@ -111,22 +111,25 @@ void Vampire::draw(Graphics & gfx)
 	//cvamp.SetG(255);
 	//cvamp.SetB(255);
 	//gfx.Rectangle(int(x), int(y), int(x + width), int(y + height), 2, cvamp);
-	
-	if (facingLeft)
+
+	if (isSmall)
 	{
-		sml_drawLeft(gfx);
-	}
-	else if (facingRight)
-	{
-		sml_drawRight(gfx);
-	}
-	else if (facingUp)
-	{
-		sml_drawUp(gfx);
-	}
-	else if (facingDown)
-	{
-		sml_drawDown(gfx);
+		if (facingLeft)
+		{
+			sml_drawLeft(gfx);
+		}
+		else if (facingRight)
+		{
+			sml_drawRight(gfx);
+		}
+		else if (facingUp)
+		{
+			sml_drawUp(gfx);
+		}
+		else if (facingDown)
+		{
+			sml_drawDown(gfx);
+		}
 	}
 }
 

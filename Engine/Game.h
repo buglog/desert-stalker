@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Instructions.h"
 #include "Vampire.h"
 #include "Desert.h"
 
@@ -44,6 +45,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	Instructions instr;
 	Vampire vampire;
 	int deathCounter = 0;
 	int deathPauseLength = 25;

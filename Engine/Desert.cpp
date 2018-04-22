@@ -2,16 +2,19 @@
 
 Desert::Desert()
 {
-	frame.init(200, 50, 750, 550);
+	frame.init(200, 20, 780, 580);
 	c0.init(300, 250, 0);
 }
 
 void Desert::process(Vampire & vamp, Graphics& gfx)
 {
-	frame.clamp(vamp);
-	frame.draw(1, Colors::Red, gfx);
 	drawSand(gfx);
 	placeCactuses(vamp, gfx);
+	frame.clamp(vamp);
+	cframe.SetR(255);
+	cframe.SetG(0);
+	cframe.SetB(0);
+	frame.draw(1, cframe, gfx);
 }
 
 void Desert::spawn(int x, int y, Vampire & vamp)

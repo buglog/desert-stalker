@@ -71,4 +71,6 @@ void Game::ComposeFrame()
 	{
 		vampire.skull(gfx);
 	}
+
+	instr.draw(gfx);
 }

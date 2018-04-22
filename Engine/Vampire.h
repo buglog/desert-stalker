@@ -29,6 +29,10 @@ private:
 	Sprite sprites;
 	Color cvamp;
 public:
+	bool isSmall = true;
+	bool isScary = false;
+	bool isStabbed = false;
+public:
 	float x = 400;
 	float y = 300;
 	float vx = 0;
@@ -44,6 +48,4 @@ public:
 	//make Frame take realHeight instead of height
 	//and make hitbox smaller.
 	float realHeight = 0.0f;
-	bool isStabbed = false;
-	bool isSpawned = false;
 };

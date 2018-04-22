@@ -17,6 +17,7 @@ private:
 private:
 	Cactus c0;
 	Frame frame;
+	Color cframe;
 	Color csand;
 	//cactuses
 };
