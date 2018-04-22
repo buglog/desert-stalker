@@ -49,9 +49,9 @@ void Frame::clamp(Vampire& vamp)
 		vamp.vx = 0.0f;
 	}
 	//top
-	if (vamp.y <= float(y))
+	if (vamp.y + vamp.hitOffset <= float(y))
 	{
-		vamp.y  = float(y);
+		vamp.y  = float(y) - vamp.hitOffset;
 		vamp.vy = 0.0f;
 	}
 }
