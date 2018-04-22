@@ -40,20 +40,13 @@ void Cactus::update(Vampire& vamp)
 	{
 		isScared = true;
 	}
-	if (isScared)
-	{
-		if (r >= 180 && g >= 210 && b >= 70)
-		{
-			turningWhite = true;
-		}
-		turnWhite();
-	}
+	turnWhite();
 }
 
 void Cactus::turnWhite()
 {
 	//increment colCounter every frame
-	if (turningWhite)
+	if (isScared)
 	{
 		if (r < 255)
 		{
@@ -81,11 +74,13 @@ void Cactus::turnWhite()
 		}
 		if (r >= 255 && g >= 255 && b >= 255)
 		{
-			turningWhite = false;
+			isScared = false;
 		}
 	}
-	if (!turningWhite)
+	//WHY WONT YOU FUCKIN TURN BACK GREEN BICH
+	else
 	{
+		/**/
 		colCounter += 1;
 		//turn white fast, turn green slow 
 		if (colCounter >= turnGreenSpeed)

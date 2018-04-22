@@ -22,7 +22,7 @@ private:
 	//white speed is faster the higher the number.
 	//green speed is faster the lower the number.
 	int turnWhiteSpeed = 10;
-	int turnGreenSpeed = 2;
+	int turnGreenSpeed = 10;
 	int r = 180;
 	int g = 210;
 	int b = 70;
