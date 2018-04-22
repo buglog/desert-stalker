@@ -4,12 +4,12 @@ Desert::Desert()
 {
 	frame.init(200, 20, 780, 580);
 	c0.init(300, 250, 0);
-}
-
-void Desert::process(Vampire & vamp, Graphics& gfx)
+}void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst)
 {
+	//set e_message at the start of every frame. this way, it will have a default and only change when processed (soon, by Saloon.h and Graveyard.h)
+	inst.e_message = inst.enter;
 	drawSand(gfx);
-	placeCactuses(vamp, gfx);
+	placeCactuses(vamp, gfx, inst);
 	frame.clamp(vamp);
 	cframe.SetR(255);
 	cframe.SetG(0);
@@ -48,8 +48,8 @@ void Desert::drawSand(Graphics & gfx)
 	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
 
-void Desert::placeCactuses(Vampire & vamp, Graphics& gfx)
+void Desert::placeCactuses(Vampire & vamp, Graphics& gfx, Instructions& inst)
 {
-	c0.place(gfx, vamp);
+	c0.place(gfx, vamp, inst);
 }
 

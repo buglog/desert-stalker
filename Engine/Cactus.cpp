@@ -7,13 +7,13 @@ void Cactus::init(int setx, int sety, int setVersion)
 	version = setVersion;
 }
 
-void Cactus::place(Graphics& gfx, Vampire& vamp)
+void Cactus::place(Graphics& gfx, Vampire& vamp, Instructions& inst)
 {
 	if (version == 0)
 	{
 		width = 30;
 		height = 50;
-		update(vamp);
+		update(vamp,inst);
 		drawVer0(gfx);
 		cWall.init(x, y, x + width, y + height, Colors::Black, 1);
 		cWall.block(vamp);
@@ -30,15 +30,18 @@ void Cactus::place(Graphics& gfx, Vampire& vamp)
 	}
 }
 
-void Cactus::update(Vampire& vamp)
+void Cactus::update(Vampire& vamp, Instructions& inst)
 {
 	if (vamp.x + vamp.width >= x - scareRange &&
 		vamp.x <= x + width + scareRange &&
 		vamp.y + vamp.height >= y - scareRange &&
-		vamp.y <= y + height + scareRange &&
-		vamp.isScary)
+		vamp.y <= y + height + scareRange)
 	{
-		isScared = true;
+		inst.e_message = inst.terrorize;
+		if (vamp.isScary)
+		{
+			isScared = true;
+		}
 	}
 	turnWhite();
 }

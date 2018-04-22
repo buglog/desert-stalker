@@ -44,7 +44,7 @@ void Game::UpdateModel()
 	if (!vampire.isStabbed)
 	{
 		vampire.update(wnd.kbd);
-		desert.process(vampire, gfx);
+		desert.process(vampire, gfx, instr);
 	}
 	//if stabbed, respawn vamp
 	else if (deathCounter < deathPauseLength)

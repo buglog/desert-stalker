@@ -1,15 +1,16 @@
 #pragma once
 #include "Vampire.h"
 #include "Wall.h"
+#include "Instructions.h"
 
 class Cactus
 {
 public:
 	void init(int setx, int sety, int setVersion);
-	void place(Graphics& gfx,Vampire& vamp);
+	void place(Graphics& gfx,Vampire& vamp,Instructions& inst);
 	Wall cWall;
 private:
-	void update(Vampire& vamp);
+	void update(Vampire& vamp, Instructions& inst);
 	void turnWhite();
 	void drawVer0(Graphics& gfx);
 	void drawVer1(Graphics& gfx);
