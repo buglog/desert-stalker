@@ -77,10 +77,8 @@ void Cactus::turnWhite()
 			isScared = false;
 		}
 	}
-	//WHY WONT YOU FUCKIN TURN BACK GREEN BICH
 	else
 	{
-		/**/
 		colCounter += 1;
 		//turn white fast, turn green slow 
 		if (colCounter >= turnGreenSpeed)
