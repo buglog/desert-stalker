@@ -12,12 +12,17 @@ public:
 	void draw(Graphics& gfx);
 	void skull(Graphics& gfx);
 private:
+	void moveControls(const Keyboard& kbd);
+	//to put the code for the E key, once it does different stuff
+	void eControl(const Keyboard& kbd);
+private:
 	//small vamp (desert scene)
 	void sml_drawLeft(Graphics& gfx);
 	void sml_drawRight(Graphics& gfx);
 	void sml_drawUp(Graphics& gfx);
 	void sml_drawDown(Graphics& gfx);
-	//large vamp
+	void sml_drawScary(Graphics& gfx);
+	//medium vamp
 private:
 	int count = 0;
 	float speed = 2.5f;
