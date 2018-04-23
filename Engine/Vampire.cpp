@@ -593,7 +593,7 @@ void Vampire::moveControls(const Keyboard & kbd)
 void Vampire::sml_drawLeft(Graphics & gfx)
 {
 	int x_int = int(x);
-	int y_int = int(y) + hitOffset;
+	int y_int = int(y + hitOffset);
 	gfx.PutPixel(x_int + 0, y_int + 13, 0, 0, 0);
 	gfx.PutPixel(x_int + 0, y_int + 14, 0, 0, 0);
 	gfx.PutPixel(x_int + 0, y_int + 15, 0, 0, 0);
@@ -3900,7 +3900,7 @@ void Vampire::sml_drawLeft(Graphics & gfx)
 void Vampire::sml_drawRight(Graphics & gfx)
 {
 	int x_int = int(x);
-	int y_int = int(y) + hitOffset;
+	int y_int = int(y + hitOffset);
 	gfx.PutPixel(x_int+ 0, y_int + 33, 213, 210, 165);
 	gfx.PutPixel(x_int+ 0, y_int + 34, 213, 210, 165);
 	gfx.PutPixel(x_int+ 0, y_int + 35, 213, 210, 165);
@@ -7210,7 +7210,7 @@ void Vampire::sml_drawRight(Graphics & gfx)
 void Vampire::sml_drawUp(Graphics & gfx)
 {
 	int x_int = int(x);
-	int y_int = int(y) + hitOffset;
+	int y_int = int(y + hitOffset);
 	gfx.PutPixel(x_int + 1, y_int + 72, 0, 0, 0);
 	gfx.PutPixel(x_int + 1, y_int + 73, 0, 0, 0);
 	gfx.PutPixel(x_int + 2, y_int + 69, 0, 0, 0);
@@ -10111,7 +10111,7 @@ void Vampire::sml_drawUp(Graphics & gfx)
 void Vampire::sml_drawDown(Graphics & gfx)
 {
 	int x_int = int(x);
-	int y_int = int(y) + hitOffset;
+	int y_int = int(y + hitOffset);
 	gfx.PutPixel(x_int + 2, y_int + 13, 213, 210, 165);
 	gfx.PutPixel(x_int + 2, y_int + 14, 180, 180, 133);
 	gfx.PutPixel(x_int + 2, y_int + 15, 180, 180, 133);
@@ -13191,7 +13191,7 @@ void Vampire::sml_drawDown(Graphics & gfx)
 void Vampire::sml_drawScary(Graphics & gfx)
 {
 	int x_int = int(x) - 25;
-	int y_int = int(y) - 60;
+	int y_int = int(y) - 70;
 
 	gfx.PutPixel(x_int + 0, y_int + 22, 255, 255, 255);
 	gfx.PutPixel(x_int + 0, y_int + 30, 238, 213, 178);

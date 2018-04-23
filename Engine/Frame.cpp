@@ -43,9 +43,9 @@ void Frame::clamp(Vampire& vamp)
 		vamp.vx = 0.0f;
 	}
 	//right
-	if (vamp.x + vamp.width >= float(width))
+	if (vamp.x + vamp.width + 5 >= float(width))
 	{
-		vamp.x = float(width) - vamp.width;
+		vamp.x = float(width) - vamp.width - 5;
 		vamp.vx = 0.0f;
 	}
 	//top

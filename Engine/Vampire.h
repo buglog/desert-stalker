@@ -25,7 +25,7 @@ private:
 	//medium vamp
 private:
 	int count = 0;
-	float speed = 2.5f;
+	float speed = 4.5f;
 	//controls horizontal speed while jumping
 	bool facingLeft = false;
 	bool facingRight = true;
@@ -45,7 +45,7 @@ public:
 	float accel = 0.5f;
 	// width and height are no longer static constexpr so you can change size of vamp between stages.
 	// also, make hitbox around feet for walls and spikes, but around entire vamp for frame.clamp(vamp).
-	int hitOffset = -60;
+	float hitOffset = -60.0f;
 	float width  = 50.0f;
 	float height = 20.0f;
 	float trueWidth = 50.0f;
