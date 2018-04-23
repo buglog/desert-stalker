@@ -22,8 +22,8 @@ private:
 	int colCounter = 0;
 	bool turningWhite = false;
 	//white speed is faster the higher the number.
+	int turnWhiteSpeed = 20;
 	//green speed is faster the lower the number.
-	int turnWhiteSpeed = 10;
 	int turnGreenSpeed = 10;
 	int setr = 180;
 	int setg = 210;
@@ -37,6 +37,6 @@ private:
 	int y = 0;
 	int width  = 30;
 	int height = 50;
-	int scareRange = 50;
+	int scareRange = 30;
 	//int trueHeight = 50;
 };

@@ -7,7 +7,7 @@ Desert::Desert(Vampire& vamp)
 	cact_A1[0].init(340, 520, 0);
 	cact_A1[1].init(360, 420, 1);
 	cact_A1[2].init(660, 40, 0);
-	cact_A1[3].init(240, 300, 2);
+	cact_A1[3].init(260, 300, 2);
 	cact_A1[4].init(600, 450, 2);
 	cact_A1[5].init(690, 340, 0);
 }
@@ -15,8 +15,9 @@ Desert::Desert(Vampire& vamp)
 void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg)
 {
 	//set e_message at the start of every frame. this way, it will have a default and only change when processed (soon, by Saloon.h and Graveyard.h)
-	inst.e_message = inst.enter;
+	inst.e_message = 0;
 	drawSand(gfx);
+	changeStage(vamp);
 	drawA1(vamp, gfx, inst,msg);
 	frame.clamp(vamp);
 	cframe.SetR(255);
@@ -29,6 +30,36 @@ void Desert::spawn(int x, int y, Vampire & vamp)
 {
 	vamp.x = float(x);
 	vamp.y = float(y);
+}
+
+void Desert::changeStage(Vampire & vamp)
+{
+	// horizontal
+	if (vamp.x + vamp.width >= float(frame.width - 1) &&
+		grid_x < gridDimX - 1)
+	{
+		grid_x += 1;
+		vamp.x = float(frame.x + 2);
+	}
+	if (vamp.x <= float(frame.x + 1) &&
+		grid_x > 0)
+	{
+		grid_x -= 1;
+		vamp.x = float(frame.width - 2) - vamp.width;
+	}
+	// vertical
+	if (vamp.x + vamp.width >= float(frame.width - 1) &&
+		grid_x < gridDimX - 1)
+	{
+		grid_x += 1;
+		vamp.x = float(frame.x + 2);
+	}
+	if (vamp.x <= float(frame.x + 1) &&
+		grid_x > 0)
+	{
+		grid_x -= 1;
+		vamp.x = float(frame.width - 2) - vamp.width;
+	}
 }
 
 void Desert::drawSand(Graphics & gfx)

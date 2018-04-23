@@ -12,14 +12,15 @@ private:
 	//draw "E: scare"
 	void drawE(Graphics& gfx);
 private:
+	void drawE_null(Graphics& gfx);
 	void drawE_terrorize(Graphics& gfx);
 	void drawE_enter(Graphics& gfx);
 	void drawE_pickup(Graphics& gfx);
 public:
 	int e_message = 1;
-	static constexpr int terrorize = 0;
-	static constexpr int enter = 1;
-	static constexpr int pickup = 2;
+	static constexpr int terrorize = 1;
+	static constexpr int enter = 2;
+	static constexpr int pickup = 3;
 private:
 	Frame fwasd;
 	Frame fe;
