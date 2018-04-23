@@ -25,7 +25,8 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
-	desert()
+	desert(),
+	msg()
 	//starting with left side of frame, moving clockwise.
 {
 }
@@ -44,7 +45,7 @@ void Game::UpdateModel()
 	if (!vampire.isStabbed)
 	{
 		vampire.update(wnd.kbd);
-		desert.process(vampire, gfx, instr);
+		desert.process(vampire, gfx, instr, msg);
 	}
 	//if stabbed, respawn vamp
 	else if (deathCounter < deathPauseLength)
@@ -71,6 +72,10 @@ void Game::ComposeFrame()
 	{
 		vampire.skull(gfx);
 	}
-
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT))
+	{
+		msg.message = msg.got_hat;
+	}
+	msg.draw(gfx);
 	instr.draw(gfx);
 }

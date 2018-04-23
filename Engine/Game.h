@@ -26,6 +26,7 @@
 #include "Instructions.h"
 #include "Vampire.h"
 #include "Desert.h"
+#include "Message.h"
 
 class Game
 {
@@ -46,6 +47,7 @@ private:
 	/********************************/
 	/*  User Variables              */
 	Instructions instr;
+	Message msg;
 	Vampire vampire;
 	int deathCounter = 0;
 	int deathPauseLength = 25;

@@ -144,6 +144,7 @@
     <ClInclude Include="DXErr.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="Instructions.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Vampire.h" />
     <ClInclude Include="Game.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Instructions.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Game.cpp" />
