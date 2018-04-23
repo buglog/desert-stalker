@@ -21,8 +21,8 @@ private:
 	void process_B1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
 	void process_B2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
 private:
-	int grid_x = 1;
-	int grid_y = 1;
+	int grid_x = 0;
+	int grid_y = 0;
 	int gridDimX = 2;
 	int gridDimY = 2;
 	Cactus cact_A1[6];

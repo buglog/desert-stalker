@@ -38,11 +38,12 @@ public:
 	bool isScary = false;
 	bool isStabbed = false;
 public:
-	float x = 400;
-	float y = 300;
+	float x = 250;
+	float y = 400;
 	float vx = 0;
 	float vy = 0;
 	float accel = 0.5f;
+	float decel = 0.1f;
 	// width and height are no longer static constexpr so you can change size of vamp between stages.
 	// also, make hitbox around feet for walls and spikes, but around entire vamp for frame.clamp(vamp).
 	float hitOffset = -60.0f;

@@ -544,13 +544,17 @@ void Vampire::moveControls(const Keyboard & kbd)
 	}
 	else
 	{
-		if (vy > 0.0f)
+		if (vy >= -0.2f && vy <= 0.2f)
 		{
-			vy -= accel;
+			vy = 0.0f;
+		}
+		else if (vy > 0.0f)
+		{
+			vy -= decel;
 		}
 		else if (vy < 0.0f)
 		{
-			vy += accel;
+			vy += decel;
 		}
 	}
 	// left right
@@ -579,13 +583,17 @@ void Vampire::moveControls(const Keyboard & kbd)
 	else
 	{
 		//slow down when no key is pressed.
-		if (vx > 0.0f)
+		if (vx >= -0.2f && vx <= 0.2f)
 		{
-			vx -= accel;
+			vx = 0.0f;
+		}
+		else if (vx > 0.0f)
+		{
+			vx -= decel;
 		}
 		else if (vx < 0.0f)
 		{
-			vx += accel;
+			vx += decel;
 		}
 	}
 }

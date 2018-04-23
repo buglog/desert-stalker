@@ -2,7 +2,7 @@
 
 Desert::Desert(Vampire& vamp)
 {
-	spawn(500, 300, vamp);
+	spawn(300, 300, vamp);
 	frame.init(200, 20, 780, 580);
 	cact_A1[0].init(340, 120, 0);
 	cact_A1[1].init(260, 500, 1);
@@ -50,7 +50,6 @@ void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message&
 	inst.e_message = 0;
 	drawSand(gfx);
 	changeStage(vamp);
-	
 	if (grid_x == 0 && grid_y == 0)
 	{
 		process_A1(vamp, gfx, inst, msg);
@@ -67,7 +66,6 @@ void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message&
 	{
 		process_B2(vamp, gfx, inst, msg);
 	}
-
 	frame.clamp(vamp);
 	cframe.SetR(255);
 	cframe.SetG(0);
@@ -95,6 +93,20 @@ void Desert::drawInFront(Vampire & vamp, Graphics & gfx)
 		for (int i = 0; i < 9; ++i)
 		{
 			cact_A2[i].drawInFront(gfx, vamp);
+		}
+	}
+	else if (grid_x == 0 && grid_y == 1)
+	{
+		for (int i = 0; i < 5; ++i)
+		{
+			cact_B1[i].drawInFront(gfx, vamp);
+		}
+	}
+	else if (grid_x == 1 && grid_y == 1)
+	{
+		for (int i = 0; i < 15; ++i)
+		{
+			cact_B2[i].drawInFront(gfx, vamp);
 		}
 	}
 }
