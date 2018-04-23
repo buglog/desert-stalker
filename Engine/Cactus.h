@@ -10,6 +10,7 @@ public:
 	void init(int setx, int sety, int setVersion);
 	void place(Graphics& gfx,Vampire& vamp,Instructions& inst,Message& msg);
 	Wall cWall;
+	void drawInFront(Graphics& gfx, Vampire& vamp);
 private:
 	void update(Vampire& vamp, Instructions& inst, Message& mgs);
 	void turnWhite();
@@ -35,8 +36,13 @@ private:
 	int nVersions = 3;
 	int x = 0;
 	int y = 0;
+	int yOffset = -30;
+	int xOffset = -20;
+	//y_draw = y + yOffset, initialized in init
+	int y_draw = 0;
+	int x_draw = 0;
 	int width  = 30;
-	int height = 50;
-	int scareRange = 30;
+	int height = 20;
+	int scareRange = 40;
 	//int trueHeight = 50;
 };

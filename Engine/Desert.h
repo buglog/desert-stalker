@@ -11,14 +11,15 @@ public:
 	Desert(Vampire& vamp);
 	void process(Vampire& vamp,Graphics& gfx, Instructions& inst, Message& msg);
 	void spawn(int x, int y, Vampire& vamp);
+	void drawInFront(Vampire& vamp, Graphics& gfx);
 private:
 	void changeStage(Vampire& vamp);
 	//drawing functions:
 	void drawSand(Graphics& gfx);
-	void drawA1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
-	void drawA2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
-	void drawB1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
-	void drawB2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void process_A1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void process_A2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void process_B1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void process_B2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
 private:
 	int grid_x = 0;
 	int grid_y = 0;

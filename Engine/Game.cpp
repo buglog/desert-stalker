@@ -65,6 +65,11 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	vampire.draw(gfx);
+	desert.drawInFront(vampire, gfx);
+	instr.draw(gfx);
+	msg.draw(gfx);
+	/*
 	if (!vampire.isStabbed)
 	{
 		vampire.draw(gfx);
@@ -77,6 +82,5 @@ void Game::ComposeFrame()
 	{
 		msg.message = msg.got_hat;
 	}
-	msg.draw(gfx);
-	instr.draw(gfx);
+	*/
 }

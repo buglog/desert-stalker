@@ -18,7 +18,7 @@ void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message&
 	inst.e_message = 0;
 	drawSand(gfx);
 	changeStage(vamp);
-	drawA1(vamp, gfx, inst,msg);
+	process_A1(vamp, gfx, inst,msg);
 	frame.clamp(vamp);
 	cframe.SetR(255);
 	cframe.SetG(0);
@@ -30,6 +30,14 @@ void Desert::spawn(int x, int y, Vampire & vamp)
 {
 	vamp.x = float(x);
 	vamp.y = float(y);
+}
+
+void Desert::drawInFront(Vampire & vamp, Graphics & gfx)
+{
+	for (int i = 0; i < 6; ++i)
+	{
+		cact_A1[i].drawInFront(gfx, vamp);
+	}
 }
 
 void Desert::changeStage(Vampire & vamp)
@@ -87,7 +95,7 @@ void Desert::drawSand(Graphics & gfx)
 	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
 
-void Desert::drawA1(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg)
+void Desert::process_A1(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg)
 {
 	//cactuses
 	for (int i = 0; i < 6; ++i)
