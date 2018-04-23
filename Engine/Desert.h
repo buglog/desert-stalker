@@ -8,20 +8,18 @@
 class Desert
 {
 public:
-	Desert();
+	Desert(Vampire& vamp);
 	void process(Vampire& vamp,Graphics& gfx, Instructions& inst, Message& msg);
 	void spawn(int x, int y, Vampire& vamp);
 private:
 	//drawing functions:
 	void drawSand(Graphics& gfx);
-	void placeCactuses(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void drawA1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void drawA2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void drawB1(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
+	void drawB2(Vampire& vamp, Graphics& gfx, Instructions& inst, Message& msg);
 private:
-	Cactus c0;
-	Cactus c1;
-	Cactus c2;
-	Cactus c3;
-	Cactus c4;
-	Cactus c5;
+	Cactus cact_A1[6];
 	Frame frame;
 	Color cframe;
 	Color csand;

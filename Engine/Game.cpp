@@ -25,9 +25,8 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
-	desert(),
+	desert(vampire),
 	msg()
-	//starting with left side of frame, moving clockwise.
 {
 }
 
@@ -41,6 +40,9 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	vampire.update(wnd.kbd);
+	desert.process(vampire, gfx, instr, msg);
+	/*
 	//check if vamp got stabbed by spikes
 	if (!vampire.isStabbed)
 	{
@@ -58,8 +60,7 @@ void Game::UpdateModel()
 		desert.spawn(400,300,vampire);
 		vampire.isStabbed = false;
 	}
-	//level 0
-	//once i know how to load sprites, the levels will be drawn out and put in ComposeFrame for posterity.
+	*/
 }
 
 void Game::ComposeFrame()

@@ -16,7 +16,7 @@ private:
 	Frame fmsg;
 	Color cframe;
 	int counter = 100;
-	static constexpr int msgTime = 150;
+	static constexpr int msgTime = 100;
 private:
 	int x = 260;
 	int y = 520;

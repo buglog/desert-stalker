@@ -36,6 +36,10 @@ void Cactus::init(int setx, int sety, int setVersion)
 
 void Cactus::place(Graphics& gfx, Vampire& vamp, Instructions& inst, Message& msg)
 {
+	//set colors for turnWhite()
+	c.SetR(r);
+	c.SetG(g);
+	c.SetB(b);
 	if (version == 0)
 	{
 		update(vamp,inst,msg);
@@ -156,11 +160,7 @@ void Cactus::turnWhite()
 
 void Cactus::drawVer0(Graphics & gfx)
 {
-	//181, 209, 68
 	//solid
-	c.SetR(setr);
-	c.SetG(setg);
-	c.SetB(setb);
 	gfx.PutPixel(x + 0, y + 4, c);
 	gfx.PutPixel(x + 0, y + 5, c);
 	gfx.PutPixel(x + 0, y + 6, c);
@@ -1299,9 +1299,6 @@ void Cactus::drawVer0(Graphics & gfx)
 
 void Cactus::drawVer1(Graphics & gfx)
 {	
-	c.SetR(setr);
-	c.SetG(setg);
-	c.SetB(setb);
 	//solid
 	gfx.PutPixel(x + 1, y + 12, c);
 	gfx.PutPixel(x + 1, y + 13, c);
@@ -3461,9 +3458,6 @@ void Cactus::drawVer1(Graphics & gfx)
 
 void Cactus::drawVer2(Graphics & gfx)
 {
-	c.SetR(setr);
-	c.SetG(setg);
-	c.SetB(setb);
 	//solid
 	gfx.PutPixel(x + 1, y + 28, c);
 	gfx.PutPixel(x + 1, y + 29, c);

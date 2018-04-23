@@ -45,9 +45,9 @@ public:
 	float accel = 0.5f;
 	// width and height are no longer static constexpr so you can change size of vamp between stages.
 	// also, make hitbox around feet for walls and spikes, but around entire vamp for frame.clamp(vamp).
-	int hitOffset = -40;
+	int hitOffset = -60;
 	float width  = 50.0f;
-	float height = 40.0f;
+	float height = 20.0f;
 	float trueWidth = 50.0f;
 	float trueHeight = 80.0f;
 	//make Frame take realHeight instead of height
