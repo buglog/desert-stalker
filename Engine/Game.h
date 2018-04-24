@@ -27,6 +27,8 @@
 #include "Vampire.h"
 #include "Desert.h"
 #include "Message.h"
+#include "ProgressBar.h"
+#include "CowboyHat.h"
 
 class Game
 {
@@ -46,12 +48,15 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	Vampire vampire;
+	CowboyHat hat;
+	Desert desert;
 	Instructions instr;
 	Message msg;
-	Vampire vampire;
+	ProgressBar cowboyBar;
+	ProgressBar terrorBar;
 	int deathCounter = 0;
 	int deathPauseLength = 25;
-	Desert desert;
 	Color c;
 	/********************************/
 };

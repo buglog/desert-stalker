@@ -29,7 +29,7 @@ void Vampire::init(int setx, int sety)
 	y = float(sety);
 }
 
-void Vampire::update(const Keyboard & kbd)
+void Vampire::update(const Keyboard & kbd, CowboyHat& hat)
 {
 	moveControls(kbd);
 	if (kbd.KeyIsPressed('E'))
@@ -43,6 +43,11 @@ void Vampire::update(const Keyboard & kbd)
 	//update position.
 	x += vx;
 	y += vy;
+
+	if (hasHat)
+	{
+		hat.init(int(x), int(y + hitOffset) - 12);
+	}
 }
 
 void Vampire::draw(Graphics & gfx)

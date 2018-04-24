@@ -140,11 +140,13 @@
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
     <ClInclude Include="Colors.h" />
+    <ClInclude Include="CowboyHat.h" />
     <ClInclude Include="Desert.h" />
     <ClInclude Include="DXErr.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="Instructions.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Vampire.h" />
     <ClInclude Include="Game.h" />
@@ -158,11 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cactus.cpp" />
+    <ClCompile Include="CowboyHat.cpp" />
     <ClCompile Include="Desert.cpp" />
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Instructions.cpp" />
     <ClCompile Include="Message.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Game.cpp" />

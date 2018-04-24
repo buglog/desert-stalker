@@ -2,13 +2,14 @@
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Sprite.h"
+#include "CowboyHat.h"
 
 class Vampire
 {
 public:
 	void ClampToScreen();
 	void init(int setx, int sety);
-	void update(const Keyboard& kbd);
+	void update(const Keyboard& kbd, CowboyHat& hat);
 	void draw(Graphics& gfx);
 	void skull(Graphics& gfx);
 private:
@@ -25,7 +26,7 @@ private:
 	//medium vamp
 private:
 	int count = 0;
-	float speed = 4.5f;
+	float speed = 3.0f;
 	//controls horizontal speed while jumping
 	bool facingLeft = false;
 	bool facingRight = true;
@@ -37,6 +38,7 @@ public:
 	bool isSmall = true;
 	bool isScary = false;
 	bool isStabbed = false;
+	bool hasHat = false;
 public:
 	float x = 250;
 	float y = 400;

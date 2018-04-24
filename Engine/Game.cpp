@@ -28,6 +28,9 @@ Game::Game(MainWindow& wnd)
 	desert(vampire),
 	msg()
 {
+	cowboyBar.init(20, 180, Colors::Cyan, 0, 10);
+	terrorBar.init(20, cowboyBar.y + cowboyBar.height + 40, Colors::Red, 1, 10);
+	hat.init(630, 450);
 }
 
 void Game::Go()
@@ -40,47 +43,51 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	vampire.update(wnd.kbd);
-	desert.process(vampire, gfx, instr, msg);
-	/*
-	//check if vamp got stabbed by spikes
-	if (!vampire.isStabbed)
-	{
-		vampire.update(wnd.kbd);
-		desert.process(vampire, gfx, instr, msg);
-	}
-	//if stabbed, respawn vamp
-	else if (deathCounter < deathPauseLength)
-	{
-		++deathCounter;
-	}
-	else if (deathCounter >= deathPauseLength)
-	{
-		deathCounter = 0;
-		desert.spawn(400,300,vampire);
-		vampire.isStabbed = false;
-	}
-	*/
+	vampire.update(wnd.kbd,hat);
+	desert.process(vampire, gfx, instr, msg, terrorBar);
 }
 
 void Game::ComposeFrame()
 {
+	if (!vampire.hasHat)
+	{
+		if (desert.canDrawHat)
+		{
+			hat.draw(gfx);
+			// check if vamp is in hat range.
+			if (vampire.x + vampire.width >= float(hat.x - hat.pickUpRange) &&
+				vampire.x <= hat.x + hat.width + hat.pickUpRange &&
+				vampire.y + vampire.height >= hat.y - hat.pickUpRange &&
+				vampire.y <= hat.y + hat.height + hat.pickUpRange)
+			{
+				instr.e_message = instr.pickup;
+				if (wnd.kbd.KeyIsPressed('E'))
+				{
+					msg.message = msg.got_hat;
+					msg.reset();
+					vampire.hasHat = true;
+				}
+			}
+
+		}
+	}
 	vampire.draw(gfx);
+	if (vampire.hasHat)
+	{
+		cowboyBar.incr(180);
+		hat.draw(gfx);
+	}
 	desert.drawInFront(vampire, gfx);
 	instr.draw(gfx);
+	cowboyBar.draw(gfx,msg);
+	terrorBar.draw(gfx,msg);
+	//you win, bsaically 
+	if (cowboyBar.getProg() >= 169 &&
+		terrorBar.getProg() >= 169)
+	{
+		msg.message = msg.beautiful;
+		msg.reset();
+	}
+	//msg.draw comes after the progressbars because they update msg.
 	msg.draw(gfx);
-	/*
-	if (!vampire.isStabbed)
-	{
-		vampire.draw(gfx);
-	}
-	else
-	{
-		vampire.skull(gfx);
-	}
-	if (wnd.kbd.KeyIsPressed(VK_SHIFT))
-	{
-		msg.message = msg.got_hat;
-	}
-	*/
 }

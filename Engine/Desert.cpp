@@ -44,7 +44,7 @@ Desert::Desert(Vampire& vamp)
 	cact_B2[14].init(706, 519, 1);
 }
 
-void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg)
+void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg, ProgressBar& terrorBar)
 {
 	//set e_message at the start of every frame. this way, it will have a default and only change when processed (soon, by Saloon.h and Graveyard.h)
 	inst.e_message = 0;
@@ -52,19 +52,23 @@ void Desert::process(Vampire & vamp, Graphics& gfx, Instructions& inst, Message&
 	changeStage(vamp);
 	if (grid_x == 0 && grid_y == 0)
 	{
-		process_A1(vamp, gfx, inst, msg);
+		process_A1(vamp, gfx, inst, msg,terrorBar);
+		canDrawHat = false;
 	}
 	else if (grid_x == 1 && grid_y == 0)
 	{
-		process_A2(vamp, gfx, inst, msg);
+		process_A2(vamp, gfx, inst, msg,terrorBar);
+		canDrawHat = false;
 	}
 	else if (grid_x == 0 && grid_y == 1)
 	{
-		process_B1(vamp, gfx, inst, msg);
+		process_B1(vamp, gfx, inst, msg, terrorBar);
+		canDrawHat = false;
 	}
 	else if (grid_x == 1 && grid_y == 1)
 	{
-		process_B2(vamp, gfx, inst, msg);
+		process_B2(vamp, gfx, inst, msg, terrorBar);
+		canDrawHat = true;
 	}
 	frame.clamp(vamp);
 	cframe.SetR(255);
@@ -166,36 +170,36 @@ void Desert::drawSand(Graphics & gfx)
 	//gfx.Rectangle(frame.x, frame.y, frame.width,frame.y + 100,4,csand);
 }
 
-void Desert::process_A1(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg)
+void Desert::process_A1(Vampire & vamp, Graphics& gfx, Instructions& inst, Message& msg, ProgressBar& terrorBar)
 {
 	//cactuses
 	for (int i = 0; i < 6; ++i)
 	{
-		cact_A1[i].place(gfx, vamp, inst, msg);
+		cact_A1[i].place(gfx, vamp, inst, msg, terrorBar);
 	}
 }
 
-void Desert::process_A2(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg)
+void Desert::process_A2(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg, ProgressBar& terrorBar)
 {
 	for (int i = 0; i < 9; ++i)
 	{
-		cact_A2[i].place(gfx, vamp, inst, msg);
+		cact_A2[i].place(gfx, vamp, inst, msg,terrorBar);
 	}
 }
 
-void Desert::process_B1(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg)
+void Desert::process_B1(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg, ProgressBar& terrorBar)
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		cact_B1[i].place(gfx, vamp, inst, msg);
+		cact_B1[i].place(gfx, vamp, inst, msg,terrorBar);
 	}
 }
 
-void Desert::process_B2(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg)
+void Desert::process_B2(Vampire & vamp, Graphics & gfx, Instructions & inst, Message & msg, ProgressBar& terrorBar)
 {
 	for (int i = 0; i < 15; ++i)
 	{
-		cact_B2[i].place(gfx, vamp, inst, msg);
+		cact_B2[i].place(gfx, vamp, inst, msg, terrorBar);
 	}
 }
 

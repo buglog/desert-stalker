@@ -3,22 +3,24 @@
 #include "Wall.h"
 #include "Instructions.h"
 #include "Message.h"
+#include "ProgressBar.h"
 
 class Cactus
 {
 public:
 	void init(int setx, int sety, int setVersion);
-	void place(Graphics& gfx,Vampire& vamp,Instructions& inst,Message& msg);
+	void place(Graphics& gfx,Vampire& vamp,Instructions& inst,Message& msg,ProgressBar& terrorBar);
 	Wall cWall;
 	void drawInFront(Graphics& gfx, Vampire& vamp);
 private:
-	void update(Vampire& vamp, Instructions& inst, Message& mgs);
+	void update(Vampire& vamp, Instructions& inst, Message& mgs, ProgressBar& terrorBar);
 	void turnWhite();
 	void drawVer0(Graphics& gfx);
 	void drawVer1(Graphics& gfx);
 	void drawVer2(Graphics& gfx);
 private:
 	bool isScared = false;
+	bool canBeScared = true;
 	Color c;
 	int colCounter = 0;
 	bool turningWhite = false;

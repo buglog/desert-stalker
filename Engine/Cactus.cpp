@@ -42,7 +42,7 @@ void Cactus::init(int setx, int sety, int setVersion)
 	x_draw = x + xOffset;
 }
 
-void Cactus::place(Graphics& gfx, Vampire& vamp, Instructions& inst, Message& msg)
+void Cactus::place(Graphics& gfx, Vampire& vamp, Instructions& inst, Message& msg, ProgressBar& terrorBar)
 {
 	//set colors for turnWhite()
 	c.SetR(r);
@@ -50,21 +50,21 @@ void Cactus::place(Graphics& gfx, Vampire& vamp, Instructions& inst, Message& ms
 	c.SetB(b);
 	if (version == 0)
 	{
-		update(vamp,inst,msg);
+		update(vamp,inst,msg,terrorBar);
 		drawVer0(gfx);
 		cWall.init(x, y, x + width, y + height, Colors::Black, 1);
 		cWall.block(vamp);
 	}
 	else if (version == 1)
 	{
-		update(vamp,inst,msg);
+		update(vamp,inst,msg,terrorBar);
 		drawVer1(gfx);
 		cWall.init(x, y, x + width, y + height, Colors::Black, 1);
 		cWall.block(vamp);
 	}
 	else if (version == 2)
 	{
-		update(vamp,inst,msg);
+		update(vamp,inst,msg,terrorBar);
 		drawVer2(gfx);
 		cWall.init(x, y, x + width, y + height, Colors::Black, 1);
 		cWall.block(vamp);
@@ -90,7 +90,7 @@ void Cactus::drawInFront(Graphics & gfx, Vampire & vamp)
 	}
 }
 
-void Cactus::update(Vampire& vamp, Instructions& inst, Message& msg)
+void Cactus::update(Vampire& vamp, Instructions& inst, Message& msg,ProgressBar& terrorBar)
 {
 	if (vamp.x + vamp.width >= x - scareRange &&
 		vamp.x <= x + width + scareRange &&
@@ -101,13 +101,24 @@ void Cactus::update(Vampire& vamp, Instructions& inst, Message& msg)
 		inst.e_message = inst.terrorize;
 		if (vamp.isScary)
 		{
-			isScared = true;
+			if (!isScared)
+			{
+				if (canBeScared)
+				{
+					terrorBar.incr(7);
+					msg.message = msg.cactus_scared;
+					msg.reset();
+					isScared = true;
+					canBeScared = false;
+				}
+				else
+				{
+					terrorBar.incr(-1);
+					msg.message = msg.cact_unimpressed;
+					msg.reset();
+				}
+			}
 		}
-	}
-	if (isScared)
-	{
-		msg.message = msg.cactus_scared;
-		msg.reset();
 	}
 	turnWhite();
 }
@@ -179,7 +190,7 @@ void Cactus::turnWhite()
 			}
 			if (r <= setr && g <= setg && b <= setb)
 			{
-				isScared = false;
+				canBeScared = true;
 			}
 		}
 	}
